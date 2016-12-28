@@ -159,7 +159,7 @@ fn main() {
     let mut is_clicked: bool;
     let mut arms: HashMap<usize, Arm> = HashMap::new();
 
-    for step in 0..num_of_views {
+    for _ in 0..num_of_views {
         let mut viewer = Viewer::new(rulet.generate_gender());
 
         content_id = rulet.generate_content();
