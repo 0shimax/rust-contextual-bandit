@@ -177,7 +177,7 @@ fn main() {
 
     println!("print result======");
     for (_, arm) in arms.iter() {
-        let mut arm = arm.clone();  // impl needs mutable self
+        let mut arm = arm.clone();
         &arm.print_result();
         println!("Click rate when men browse: {}", &arm.predict(&man_mat) );
         println!("Click rate when women browse: {}", &arm.predict(&woman_mat) );
