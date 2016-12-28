@@ -1,5 +1,5 @@
 [package]
-authors = ["shimao <shin.keeper@gmail.com>"]
+authors = ["0shimax <shin.keeper@gmail.com>"]
 name = "contextual_bandit"
 version = "0.1.0"
 
