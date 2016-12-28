@@ -1,7 +1,6 @@
 extern crate rusty_machine as rm;
 extern crate rand;
 
-// https://github.com/AtheMathmo/rusty-machine/pull/101/files
 use rm::linalg::{Matrix, BaseMatrix};
 use rand::{Rng, ThreadRng};
 use std::collections::HashMap;
@@ -147,10 +146,6 @@ impl Rulet{
 
 
 fn main() {
-    // コピーを作るのではなく、本体は一つでそれにアクセスできる変数を増やした感じ
-    // 引数に渡した時も所有権の移動が起きる
-    // 参照を得るときに&mutを使うことでmutableな参照を得ることができ、それを受け取った側は値を変更できる。mutableな参照を得られるのはmutableな変数に対してのみ。
-    // 可変な参照を誰かが借用している間は、それが返却されるまで不変な参照を含め他の参照は一切取得できない
     /*Context is for men and women only
     Men are easy to click on ads with id 5 or less
     Women are easy to click on ads with id 6 or higher
@@ -175,11 +170,6 @@ fn main() {
         arm.update(features, is_clicked);
         arms.remove(&content_id);
         arms.insert(content_id, arm.clone());
-
-        // Confirmation of prediction accuracy when the number of data is small
-        if step<2000 {
-            &arm.print_result();
-        }
     }
 
     let man_mat: Matrix<f64> = Matrix::new(1,2, vec![1.,0.]);
