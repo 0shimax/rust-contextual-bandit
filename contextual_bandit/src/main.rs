@@ -9,7 +9,7 @@ use std::collections::HashMap;
 fn generate_arm(content_id: &usize, arms: &HashMap<usize, Arm>, feature_dim: &usize) -> Arm {
     let arm: Arm;
     if !arms.contains_key(content_id) {
-        arm = Arm::new(*feature_dim, *content_id, 0.0001, 0.0);
+        arm = Arm::new(*feature_dim, *content_id);
     }else{
         arm = arms.get(content_id).unwrap().clone();
     };
@@ -28,15 +28,15 @@ struct Arm{
 }
 
 impl Arm {
-    fn new(feature_dim: usize, content_id: usize, alpha: f64, win_rate: f64) -> Arm {
+    fn new(feature_dim: usize, content_id: usize) -> Arm {
         Arm {
             content_id: content_id,
             norm_mean: Matrix::zeros(1, feature_dim),
             cov_matrix: Matrix::ones(1, feature_dim),
-            alpha: alpha,
-            win_rate: win_rate,
-            win: 0.0,
-            lose: 0.0,
+            alpha: 0.0001,
+            win_rate: 0.,
+            win: 0.,
+            lose: 0.,
         }
     }
 
