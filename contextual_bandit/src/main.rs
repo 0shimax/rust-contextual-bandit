@@ -169,7 +169,7 @@ fn main() {
         let mut arm = generate_arm(&content_id, &arms, &feature_dim);
         arm.update(features, is_clicked);
         arms.remove(&content_id);
-        arms.insert(content_id, arm.clone());
+        arms.insert(content_id, arm);
     }
 
     let man_mat: Matrix<f64> = Matrix::new(1,2, vec![1.,0.]);
