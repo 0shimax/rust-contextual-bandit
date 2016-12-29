@@ -59,7 +59,7 @@ impl Arm {
         self.win_rate = &self.win/(&self.win + &self.lose);
     }
 
-    fn predict(&mut self, features: &Matrix<f64>) -> f64 {
+    fn predict(&self, features: &Matrix<f64>) -> f64 {
         let one_div_cov_vec = self.cov_matrix.iter().map(|x| 1.0/x).collect::<Vec<f64>>();
         let one_div_cov = Matrix::new(self.cov_matrix.rows(),
                                       self.cov_matrix.cols(), one_div_cov_vec);
@@ -73,7 +73,7 @@ impl Arm {
         (theta*features.transpose()).data()[0] + &tmp
     }
 
-    fn print_result(&mut self) {
+    fn print_result(&self) {
         println!("content_id:{}, total_num:{}, win_rate:{}",
                 &self.content_id, &self.win+&self.lose, &self.win_rate);
     }
@@ -177,7 +177,6 @@ fn main() {
 
     println!("print result======");
     for (_, arm) in arms.iter() {
-        let mut arm = arm.clone();
         &arm.print_result();
         println!("Click rate when men browse: {}", &arm.predict(&man_mat) );
         println!("Click rate when women browse: {}", &arm.predict(&woman_mat) );
