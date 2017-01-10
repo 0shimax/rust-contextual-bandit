@@ -181,5 +181,4 @@ fn main() {
         println!("Click rate when men browse: {}", &arm.predict(&man_mat) );
         println!("Click rate when women browse: {}", &arm.predict(&woman_mat) );
     }
-
 }
